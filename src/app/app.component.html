@@ -1,0 +1,53 @@
+
+<h1>Enter invoice details below</h1>
+<form [formGroup] = "invoiceForm" class="form-container" (ngSubmit)="onSubmit()">  
+  <mat-form-field appearance="fill">
+    <mat-label>Full Name</mat-label>
+    <input matInput formControlName="fullName" placeholder="Enter Full Name" type="text" required/>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" placeholder="Enter Email" type="email" required/>
+  </mat-form-field>
+  
+  <mat-form-field appearance="fill">
+    <mat-label>Phone Number</mat-label>
+    <input matInput formControlName="phoneNumber" placeholder="Enter Phone Number" type="text" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Invoice Number</mat-label>
+    <input matInput formControlName="invoiceNumber" placeholder="Enter invoice number" type="text" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Invoice Date</mat-label>
+    <input matInput formControlName="invoiceDate" [matDatepicker]="picker" placeholder="Choose a date" required/>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Amount</mat-label>
+    <input matInput formControlName="amount" placeholder="Enter Amount" type="text" required/>
+  </mat-form-field>
+
+<div class="signature-container">
+  <app-signature formControlName="signature"></app-signature>
+    <!--<pre>{{ invoiceForm.value | json }}</pre>
+    <pre>Signature: {{ invoiceForm.get('signature')?.value }}</pre>
+    <pre>Form valid: {{ invoiceForm.valid }}</pre>-->
+
+    <div class="error" *ngIf="invoiceForm.get('signature')?.invalid && invoiceForm.get('signature')?.touched">
+        Signature is required!
+    </div>
+  </div>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!invoiceForm.valid" [ngClass]="{'disabled-button': !invoiceForm.valid}">
+   Create Invoice
+  </button>
+</form>

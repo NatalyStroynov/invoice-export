@@ -1,0 +1,19 @@
+.signature-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  grid-column: span 2;
+
+  canvas {
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    height: 200px;
+    cursor: crosshair;
+  }
+
+  button {
+    margin-top: 8px;
+    align-self: flex-end;
+  }
+}
