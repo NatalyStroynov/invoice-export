@@ -1,27 +1,63 @@
-# InvoiceExport
+# Invoice Export
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+This project is a full-stack application for submitting invoices and generating PDF exports.  
+It consists of an Angular frontend and a Node.js (Express) backend.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Invoice form submission
+- Signature pad support
+- PDF generation and download
+- REST API for invoice data
 
-## Code scaffolding
+## Technologies
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular 17
+- Node.js + Express
+- Material UI
+- Jasmine + Karma (unit tests)
 
-## Build
+## Getting Started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Prerequisites
 
-## Running unit tests
+- Node.js (v18+ recommended)
+- npm
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Installation
 
-## Running end-to-end tests
+```sh
+npm install
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Running the Application
 
-## Further help
+To start both the Angular frontend and Node.js backend together:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```sh
+npm run dev
+```
+
+- Angular app runs on [http://localhost:4200](http://localhost:4200)
+- Express server runs on [http://localhost:3000](http://localhost:3000)
+
+### Running Tests
+
+```sh
+npm test
+```
+
+## Project Structure
+
+- `/src` — Angular frontend
+- `/server.js` — Express backend
+- `/package.json` — Project configuration and scripts
+
+## API Endpoints
+
+- `POST /api/invoice` — Submit invoice data
+- `GET /api/invoice/:id/pdf` — Download invoice PDF
+
+## License
+
+MIT
